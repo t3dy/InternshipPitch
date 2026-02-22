@@ -1,0 +1,66 @@
+{
+  "name": "The Vibe Coder",
+  "role": "Instructional Systems Designer & Systems Archeologist",
+  "philosophy": "Action Mapping + Software Scaffolding",
+  "skills": [
+    {
+      "name": "Action Mapping",
+      "level": 95,
+      "count": 10
+    },
+    {
+      "name": "Systems Archeology",
+      "level": 90,
+      "count": 15
+    },
+    {
+      "name": "Multimodal RAG",
+      "level": 85,
+      "count": 3
+    },
+    {
+      "name": "IPC & Build Pipelines",
+      "level": 88,
+      "count": 12
+    },
+    {
+      "name": "Metacognitive Auditing",
+      "level": 92,
+      "count": 20
+    }
+  ],
+  "projects": [
+    {
+      "id": "pkd-archive",
+      "name": "PKD Multimedia Archive",
+      "description": "Hybrid Graph-Relational database for Philip K. Dick scholars.",
+      "tech": [
+        "RAG",
+        "GraphDB",
+        "Zod",
+        "Digital Humanities"
+      ],
+      "lesson": "The Simulacra (Politics of Configuration)"
+    },
+    {
+      "id": "sound-legacy",
+      "name": "Sound Legacy Pipeline",
+      "description": "Automated archival systems for scalable biographical storytelling.",
+      "tech": [
+        "Log Tailers",
+        "Data Pipelines",
+        "Workflow Automation"
+      ],
+      "lesson": "Electric Ant (Internal Inspections)"
+    }
+  ],
+  "metacognition": {
+    "philosophy": "The Plan Gate",
+    "top_critique": "Prioritize raw log text over screenshots for 10x signal density.",
+    "skills_built": [
+      "journey_audit",
+      "portfolio_gen",
+      "internship_pitch"
+    ]
+  }
+}
