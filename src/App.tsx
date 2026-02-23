@@ -163,17 +163,24 @@ function App() {
                             exit={{ opacity: 0, y: -20 }}
                         >
                             <header style={{ marginBottom: '3rem' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
+                                    <span className="glass" style={{ padding: '4px 12px', fontSize: '0.7rem', fontWeight: 800, color: 'var(--primary)' }}>MISSION STATUS: SYNCED</span>
+                                    <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>OS v2.0.0-PHOENIX</span>
+                                </div>
                                 <h1 className="gradient-text" style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>The Phoenix Build</h1>
-                                <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '600px' }}>
-                                    A multi-agent synthesis of engineering history, pedagogic evolution,
-                                    and digital humanities archives.
+                                <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '700px' }}>
+                                    Welcome to the Command Center. This dashboard synthesizes a decade of pedagogic exploration with high-end software engineering.
+                                    Navigate through the sectors to explore the engineering rituals, hour analysis, and the archived vault of multi-agent collaboration.
                                 </p>
                             </header>
 
                             <div className="dashboard-grid">
                                 <div className="card glass" style={{ gridColumn: 'span 8' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
-                                        <h3>Active Investigation Feed</h3>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                                        <div>
+                                            <h3>Active Investigation Feed</h3>
+                                            <p style={{ fontSize: '0.8rem', opacity: 0.6 }}>Real-time telemetry from multi-agent development cycles.</p>
+                                        </div>
                                         <Terminal size={20} />
                                     </div>
                                     <div style={{ height: '300px', width: '100%' }}>
@@ -181,7 +188,7 @@ function App() {
                                             <BarChart data={hoursData}>
                                                 <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                                                 <XAxis dataKey="name" />
-                                                <YAxis />
+                                                <YAxis label={{ value: 'Hours', angle: -90, position: 'insideLeft' }} />
                                                 <Tooltip
                                                     contentStyle={{ background: 'var(--bg-dark)', border: 'none', borderRadius: '8px', color: 'white' }}
                                                 />
@@ -197,7 +204,8 @@ function App() {
 
                                 <div className="card glass-dark" style={{ gridColumn: 'span 4' }}>
                                     <h3>Learning Journey</h3>
-                                    <div style={{ height: '300px', width: '100%' }}>
+                                    <p style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: '1rem' }}>Distribution of cognitive focus across core disciplines.</p>
+                                    <div style={{ height: '240px', width: '100%' }}>
                                         <ResponsiveContainer>
                                             <PieChart>
                                                 <Pie
@@ -208,17 +216,69 @@ function App() {
                                                     dataKey="value"
                                                 >
                                                     {learningData.map((entry, index) => (
-                                                        <Cell key={`cell-${index}`} fill={index === 0 ? 'var(--secondary)' : index === 1 ? '#fff' : '#4a4a4a'} />
+                                                        <Cell key={`cell-${index}`} fill={index === 0 ? 'var(--secondary)' : index === 1 ? '#fff' : index === 2 ? '#8b0000' : '#4a4a4a'} />
                                                     ))}
                                                 </Pie>
                                                 <Tooltip />
                                             </PieChart>
                                         </ResponsiveContainer>
                                     </div>
-                                    <div style={{ marginTop: '1rem', fontSize: '0.9rem', opacity: 0.8 }}>
+                                    <div style={{ marginTop: '1rem', fontSize: '0.85rem', opacity: 0.8 }}>
                                         <p>• Systems Engineering: 45%</p>
                                         <p>• Digital Humanities: 30%</p>
                                         <p>• Interface Design: 15%</p>
+                                        <p>• Pedagogy: 10%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {activeTab === 'metrics' && (
+                        <motion.div
+                            key="metrics"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 1.05 }}
+                        >
+                            <h2 style={{ marginBottom: '1rem' }}>Hour Analysis Sector</h2>
+                            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', maxWidth: '800px' }}>
+                                A data-driven quantification of the engineering ritual. Every hour represents a transition from teacher to architect, mapping
+                                the 15-year pedagogic arc of **TreeTapper** against the high-velocity engineering of **AlchemyDB** and **MTGOverlay**.
+                            </p>
+
+                            <div className="dashboard-grid">
+                                <div className="card glass" style={{ gridColumn: 'span 12' }}>
+                                    <h3>Comprehensive Time Audit (46.2 Total Hours)</h3>
+                                    <div style={{ marginTop: '2rem', overflowX: 'auto' }}>
+                                        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+                                            <thead>
+                                                <tr style={{ borderBottom: '2px solid var(--primary)', textAlign: 'left' }}>
+                                                    <th style={{ padding: '1rem' }}>Component</th>
+                                                    <th style={{ padding: '1rem' }}>Focus Area</th>
+                                                    <th style={{ padding: '1rem' }}>Primary Agent</th>
+                                                    <th style={{ padding: '1rem' }}>Hours</th>
+                                                    <th style={{ padding: '1rem' }}>Significance</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {[
+                                                    { name: 'PKD Multimedia DB', area: 'Digital Humanities', agent: 'Antigravity', hours: 14, sig: 'Foundation of the archival strategy.' },
+                                                    { name: 'MTGOverlay V1', area: 'Log Interrogation', agent: 'Claude Code', hours: 8, sig: 'Alpha POC for real-time state tracking.' },
+                                                    { name: 'MTGOverlay V2', area: 'Systems Stress', agent: 'Claude Code', hours: 10, sig: 'Key milestone in debugging technical debt.' },
+                                                    { name: 'TreeTapper Engine', area: 'Pedagogic Logic', agent: 'Hybrid', hours: 6, sig: 'Mapping 15 years of classroom insight.' },
+                                                    { name: 'Phoenix Dashboard', area: 'Synthesis', agent: 'Antigravity', hours: 8.2, sig: 'Deployment of the total multi-agent system.' },
+                                                ].map((row, i) => (
+                                                    <tr key={i} style={{ borderBottom: '1px solid var(--border)' }}>
+                                                        <td style={{ padding: '1rem', fontWeight: 600 }}>{row.name}</td>
+                                                        <td style={{ padding: '1rem' }}>{row.area}</td>
+                                                        <td style={{ padding: '1rem' }}><span style={{ fontSize: '0.7rem', background: 'var(--primary)', color: 'white', padding: '2px 6px', borderRadius: '4px' }}>{row.agent}</span></td>
+                                                        <td style={{ padding: '1rem' }}>{row.hours}h</td>
+                                                        <td style={{ padding: '1rem', fontStyle: 'italic', opacity: 0.7 }}>{row.sig}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -232,7 +292,11 @@ function App() {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: -20 }}
                         >
-                            <h2 style={{ marginBottom: '2rem' }}>The Vault Sector</h2>
+                            <h2 style={{ marginBottom: '1rem' }}>The Vault Sector</h2>
+                            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', maxWidth: '800px' }}>
+                                Access point for legacy payloads and active digital humanities archives. These links bypass the command center
+                                to provide direct interrogation of the independent project databases.
+                            </p>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
                                 {projects.map(project => (
                                     <div key={project.id} className="card glass">
@@ -254,6 +318,63 @@ function App() {
                                         </a>
                                     </div>
                                 ))}
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {activeTab === 'narrative' && (
+                        <motion.div
+                            key="narrative"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 20 }}
+                        >
+                            <h2 style={{ marginBottom: '1rem' }}>Engineering Rituals</h2>
+                            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', maxWidth: '800px' }}>
+                                A post-mortem of the **Engineering Crucible**. Here we document the transition from conceptual "vibe" to rigorous stability,
+                                using the failure of the V2 overlay as a masterclass in architectural oversight.
+                            </p>
+
+                            <div className="dashboard-grid">
+                                <div className="card glass-dark" style={{ gridColumn: 'span 6' }}>
+                                    <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', color: 'var(--secondary)' }}>
+                                        <ShieldAlert size={32} />
+                                        <h3>The Crucible of V2</h3>
+                                    </div>
+                                    <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>
+                                        The MTGOverlay V2 reached a state of **Critical Stability Failure** due to IPC flooding and aggressive input hijacking.
+                                        This phase (preserved in the Legacy Sector) demonstrates the "Death by a Thousand Cuts" architecture.
+                                    </p>
+                                    <ul style={{ fontSize: '0.85rem', opacity: 0.8, paddingLeft: '1.2rem' }}>
+                                        <li>• globalShortcut collisions with native OS inputs.</li>
+                                        <li>• IPC channel flooding (100ms shallow clones stalled the event loop).</li>
+                                        <li>• PowerShell log-tailing stalls during high CPU spikes.</li>
+                                    </ul>
+                                </div>
+
+                                <div className="card glass" style={{ gridColumn: 'span 6' }}>
+                                    <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem', color: 'var(--primary)' }}>
+                                        <BookOpen size={32} />
+                                        <h3>Systems Archeology Score: 98/100</h3>
+                                    </div>
+                                    <p style={{ fontSize: '0.9rem', marginBottom: '1rem', fontWeight: 600 }}>
+                                        The shift to "Systems Archeology" allowed us to rebuild the project with:
+                                    </p>
+                                    <ul style={{ fontSize: '0.85rem', opacity: 0.8, paddingLeft: '1.2rem' }}>
+                                        <li><strong>Log-First Architecture</strong>: Decoupling UI from the game process.</li>
+                                        <li><strong>Type-Safe Orchestration</strong>: Zod integration for runtime schema validation.</li>
+                                        <li><strong>Metacognitive Feedback</strong>: Replaying 322MB of history to ensure reproducible logic.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="card glass" style={{ marginTop: '2rem' }}>
+                                <h3>The Dual-Agent Synthesis</h3>
+                                <p style={{ fontSize: '0.9rem', marginTop: '1rem', color: 'var(--text-muted)' }}>
+                                    This dashboard is the result of a coordinated effort between **Antigravity** (Visual Architect) and **Claude Code** (Core Engineering).
+                                    The ratio of interaction to execution (1:4.0 for Claude, 1:2.5 for Antigravity) represents a highly efficient synthesis of
+                                    human intent and AI ritual production.
+                                </p>
                             </div>
                         </motion.div>
                     )}
