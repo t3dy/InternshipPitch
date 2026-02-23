@@ -31,13 +31,13 @@ const hoursData = [
     { name: 'MTG V1', hours: 8, color: '#6b0f0f' },
     { name: 'MTG V2', hours: 10, color: '#b89c72' },
     { name: 'TreeTapper', hours: 6, color: '#8b0000' },
-    { name: 'Showcase', hours: 8, color: '#000000' },
+    { name: 'Showcase', hours: 8.2, color: '#000000' },
 ]
 
 const learningData = [
-    { name: 'Engineering', value: 40 },
-    { name: 'Architecture', value: 30 },
-    { name: 'Esoterica', value: 20 },
+    { name: 'Systems Engineering', value: 45 },
+    { name: 'Digital Humanities', value: 30 },
+    { name: 'Interface Design', value: 15 },
     { name: 'Pedagogy', value: 10 },
 ]
 
@@ -216,9 +216,9 @@ function App() {
                                         </ResponsiveContainer>
                                     </div>
                                     <div style={{ marginTop: '1rem', fontSize: '0.9rem', opacity: 0.8 }}>
-                                        <p>• Engineering: 40%</p>
-                                        <p>• Architecture: 30%</p>
-                                        <p>• Esoterica: 20%</p>
+                                        <p>• Systems Engineering: 45%</p>
+                                        <p>• Digital Humanities: 30%</p>
+                                        <p>• Interface Design: 15%</p>
                                     </div>
                                 </div>
                             </div>
