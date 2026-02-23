@@ -130,6 +130,29 @@ h4 {
   border: 1px solid var(--border);
 }
 
+.bin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.bin-card {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.bin-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.bin-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
 .sitemap {
   background: var(--bg-card);
   padding: 2rem;

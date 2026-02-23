@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-expo-app@latest TreeTapperApp --template blank)",
+      "Bash(where:*)",
+      "Bash(where npm:*)",
+      "Bash(cmd /c \"where node & where npm & where npx\")",
+      "Bash(cmd /c:*)",
+      "Bash(powershell -Command:*)"
+    ]
+  }
+}

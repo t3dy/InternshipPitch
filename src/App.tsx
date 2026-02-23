@@ -70,6 +70,82 @@ function App() {
                 <div id="pkd" style={{ height: '0' }}></div>
             </div>
 
+            <div className="container" id="agent-bins">
+                <h2 className="section-title">Agent Segregation: The Multi-Agent Workforce</h2>
+                <div className="bin-grid">
+                    <div className="bin-card">
+                        <h3>🌌 Bin A: Antigravity</h3>
+                        <p><strong>Role</strong>: Project Architect & Curriculum Designer</p>
+                        <ul style={{ fontSize: '0.8rem', paddingLeft: '1rem', marginTop: '1rem' }}>
+                            <li>Vite + React Scaffolding</li>
+                            <li>SHWEP Aesthetic System</li>
+                            <li>60+ Curricular Lessons</li>
+                            <li>CI/CD Deployment Pipelines</li>
+                        </ul>
+                    </div>
+                    <div className="bin-card">
+                        <h3>🤖 Bin B: Claude Code</h3>
+                        <p><strong>Role</strong>: Engineering Specialist</p>
+                        <ul style={{ fontSize: '0.8rem', paddingLeft: '1rem', marginTop: '1rem' }}>
+                            <li>MTGA Log Interrogation</li>
+                            <li>Native Win32 Geometry Sync</li>
+                            <li>State Logic Persistence</li>
+                            <li>TreeTapper Logic Implementation</li>
+                        </ul>
+                        <a href="https://github.com/t3dy/InternshipPitch/tree/main/claude-code-bins" className="btn" style={{ fontSize: '0.7rem', marginTop: '1.5rem', display: 'inline-block' }}>Browse Claude Bin</a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container" id="hour-analysis">
+                <h2 className="section-title">Analysis of Total Coding Hours</h2>
+                <div className="list-view">
+                    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
+                        <thead>
+                            <tr style={{ borderBottom: '2px solid var(--border)', textAlign: 'left' }}>
+                                <th style={{ padding: '1rem' }}>Phase</th>
+                                <th style={{ padding: '1rem' }}>Human Interaction</th>
+                                <th style={{ padding: '1rem' }}>Antigravity</th>
+                                <th style={{ padding: '1rem' }}>Claude Code</th>
+                                <th style={{ padding: '1rem' }}>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                                <td style={{ padding: '1rem' }}>Vibe Era</td>
+                                <td style={{ padding: '1rem' }}>4.5h</td>
+                                <td style={{ padding: '1rem' }}>2.0h</td>
+                                <td style={{ padding: '1rem' }}>1.5h</td>
+                                <td style={{ padding: '1rem' }}>8.0h</td>
+                            </tr>
+                            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                                <td style={{ padding: '1rem' }}>Engineering Crucible</td>
+                                <td style={{ padding: '1rem' }}>12.0h</td>
+                                <td style={{ padding: '1rem' }}>6.0h</td>
+                                <td style={{ padding: '1rem' }}>8.5h</td>
+                                <td style={{ padding: '1rem' }}>26.5h</td>
+                            </tr>
+                            <tr style={{ borderBottom: '1px solid var(--border)' }}>
+                                <td style={{ padding: '1rem' }}>Instructional Pivot</td>
+                                <td style={{ padding: '1rem' }}>6.0h</td>
+                                <td style={{ padding: '1rem' }}>4.5h</td>
+                                <td style={{ padding: '1rem' }}>1.0h</td>
+                                <td style={{ padding: '1rem' }}>11.5h</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr style={{ fontWeight: 'bold', color: 'var(--accent)' }}>
+                                <td style={{ padding: '1rem' }}>TOTAL</td>
+                                <td style={{ padding: '1rem' }}>22.5h</td>
+                                <td style={{ padding: '1rem' }}>12.5h</td>
+                                <td style={{ padding: '1rem' }}>11.0h</td>
+                                <td style={{ padding: '1rem' }}>46.0h</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
             <div className="container" id="sitemap-section">
                 <h2 className="section-title">Site Map & Resources</h2>
                 <div id="services" style={{ height: '0' }}></div>
@@ -81,12 +157,14 @@ function App() {
                         <li>
                             <h4>Interrogations</h4>
                             <a href="#pitch-video">The Pitch Video</a><br />
-                            <a href="#methodology">Metacognition Report</a>
+                            <a href="#hour-analysis">Hour Analysis Table</a><br />
+                            <a href="#agent-bins">Agent Bin Segregation</a>
                         </li>
                         <li>
                             <h4>The Archive</h4>
                             <a href="#archive">Project Catalog</a><br />
-                            <a href="#pkd">PKD Archive Proposal</a>
+                            <a href="#pkd">PKD Archive Proposal</a><br />
+                            <a href="#overlay">Overlay V2 Eng. Crucible</a>
                         </li>
                         <li>
                             <h4>Methodology</h4>
