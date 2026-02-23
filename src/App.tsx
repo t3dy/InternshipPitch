@@ -1,199 +1,276 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import {
+    Terminal,
+    History,
+    Database,
+    ShieldAlert,
+    BookOpen,
+    Clock,
+    ChevronRight,
+    ExternalLink,
+    Cpu,
+    Layers
+} from 'lucide-react'
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+    Cell,
+    PieChart,
+    Pie
+} from 'recharts'
+
+// --- Data ---
+const hoursData = [
+    { name: 'PKD DB', hours: 14, color: '#4a0404' },
+    { name: 'MTG V1', hours: 8, color: '#6b0f0f' },
+    { name: 'MTG V2', hours: 10, color: '#b89c72' },
+    { name: 'TreeTapper', hours: 6, color: '#8b0000' },
+    { name: 'Showcase', hours: 8, color: '#000000' },
+]
+
+const learningData = [
+    { name: 'Engineering', value: 40 },
+    { name: 'Architecture', value: 30 },
+    { name: 'Esoterica', value: 20 },
+    { name: 'Pedagogy', value: 10 },
+]
 
 const projects = [
     {
-        id: 'pkd',
-        title: 'Archive Oracle: The PKD Multimedia Database',
-        problem: 'Fragmentation of biographical and esoteric archives.',
-        solution: 'A scholarly-grade hybrid database with Multimodal RAG AI Tutor integration.',
-        tags: ['Digital Humanities', 'Graph DB', 'RAG']
+        id: 'phoenix',
+        title: 'Phoenix Dashboard',
+        status: 'Stable',
+        agent: 'Antigravity',
+        description: 'The synthesis of all multi-agent work into a high-end command center.',
+        link: '#',
+        tags: ['Vite', 'React', 'Framer Motion']
     },
     {
-        id: 'sound',
-        title: 'Memory Engineering: Sound Legacy Intake',
-        problem: 'Manual inventory bottlenecks in biographical archival.',
-        solution: 'Automated data pipelines and log-tailing for scalable life-story creation.',
-        tags: ['Automation', 'Systems Archeology', 'Workflow']
+        id: 'alchemydb',
+        title: 'AlchemyDB',
+        status: 'Deployed',
+        agent: 'Claude Code',
+        description: 'Digital Humanities Archive with SQLite and automated extraction pipelines.',
+        link: 'https://t3dy.github.io/AlchemyDB/',
+        tags: ['Python', 'SQLite', 'Web']
     },
     {
-        id: 'overlay',
-        title: 'The Crucible: Real-time Log Interrogation',
-        problem: 'Technical debt in real-time application state management.',
-        solution: 'Native Win32 geometry sync and Zod-validated persistence for game-state tracking.',
-        tags: ['Engineering Rigor', 'IPC', 'State Logic']
+        id: 'mtgo-v2',
+        title: 'MTGOverlay V2',
+        status: 'Decommissioned',
+        agent: 'Claude Code',
+        description: 'A study in technical debt and IPC flooding. Preserved for engineering rituals.',
+        link: './legacy-v1/',
+        tags: ['Electron', 'IPC', 'PowerShell']
     },
     {
         id: 'treetapper',
-        title: 'Esoteric Logic: The TreeTapper Engine',
-        problem: 'Mapping high-dimensional philosophical data to interactive UI.',
-        solution: 'Dynamic color-scale attribution engines for real-time pedagogical feedback.',
-        tags: ['Instructional Design', 'Philosophy-to-Code', 'UI/UX']
+        title: 'TreeTapper',
+        status: 'Prototype',
+        agent: 'Hybrid',
+        description: 'Pedagogic game engine evolution over a 15-year arc.',
+        link: 'https://t3dy.github.io/TreeTapper/',
+        tags: ['Expo', 'React Native', 'HTML5']
     }
 ]
 
-function App() {
+// --- Components ---
+
+const Sidebar = ({ activeTab, setActiveTab }: any) => {
+    const tabs = [
+        { id: 'overview', icon: Cpu, label: 'Command Center' },
+        { id: 'metrics', icon: Clock, label: 'Hour Analysis' },
+        { id: 'archives', icon: Layers, label: 'Vault Sector' },
+        { id: 'narrative', icon: ShieldAlert, label: 'Engineering Rituals' },
+    ]
+
     return (
-        <div>
-            <section className="hero">
-                <h4 style={{ color: 'var(--accent)', marginBottom: '1rem' }}>The Archive of the Future</h4>
-                <h1 style={{ fontSize: '3rem', marginBottom: '1.5rem', maxWidth: '800px' }}>
-                    Internship <span className="burgundy-text">Pitch Generator</span>
-                </h1>
-                <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '600px', marginBottom: '2.5rem' }}>
-                    A methodology for transforming "Vibe Coding" into high-impact systems engineering and instructional design.
-                </p>
-                <div style={{ display: 'flex', gap: '1rem' }}>
-                    <a href="#archive" className="btn" style={{ textDecoration: 'none' }}>Explore Dashboard</a>
-                    <a href="#pitch-generator" className="btn" style={{ background: 'var(--primary)', color: 'white', textDecoration: 'none' }}>Generate Pitch</a>
-                </div>
-            </section>
+        <div className="glass-dark" style={{
+            width: '260px',
+            height: 'calc(100vh - 4rem)',
+            position: 'sticky',
+            top: '2rem',
+            padding: '2rem 1rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem'
+        }}>
+            <div style={{ padding: '0 1rem 1rem', borderBottom: '1px solid rgba(255,255,255,0.1)', marginBottom: '1rem' }}>
+                <h2 style={{ fontSize: '0.9rem', opacity: 0.6, letterSpacing: '0.1rem' }}>ARCHIVIST OS</h2>
+            </div>
+            {tabs.map(tab => (
+                <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`btn ${activeTab === tab.id ? 'btn-primary' : ''}`}
+                    style={{
+                        justifyContent: 'flex-start',
+                        background: activeTab === tab.id ? 'var(--primary)' : 'transparent',
+                        color: activeTab === tab.id ? 'white' : 'rgba(255,255,255,0.7)',
+                        border: 'none',
+                        fontSize: '1rem'
+                    }}
+                >
+                    <tab.icon size={18} />
+                    {tab.label}
+                </button>
+            ))}
+        </div>
+    )
+}
 
-            <div className="container" id="pitch-video">
-                <h2 className="section-title">The Pitch</h2>
-                <div className="video-container">
-                    <p>[Placeholder: Internship Pitch Video - 2 Minutes]</p>
-                    {/* Once video is recorded: <video controls src="/pitch_recording.mp4" style={{width: '100%'}} /> */}
-                </div>
-                <p style={{ textAlign: 'center', fontStyle: 'italic', marginTop: '1rem', color: 'var(--text-muted)' }}>
-                    Demonstrating CS aptitude and the "Action Mapping" approach to Paul Shelton & Sound Legacy.
-                </p>
-                <div id="methodology" style={{ height: '0' }}></div>
+function App() {
+    const [activeTab, setActiveTab] = useState('overview')
+    const [logs, setLogs] = useState<string[]>([])
+
+    useEffect(() => {
+        const logPool = [
+            "SYSTEM: Initializing multi-agent bridge...",
+            "ANTIGRAVITY: Optimized render cycles in dashboard core.",
+            "CLAUDE_CODE: Refactoring MTGOverlay IPC handlers (Legacy V2).",
+            "ANALYSIS: Detected 46.2 total hours of engineering ritual.",
+            "SYSTEM: Syncing AlchemyDB corpus metadata...",
+            "ARCHIVE: TreeTapper prototypes indexed.",
+        ]
+
+        const interval = setInterval(() => {
+            setLogs(prev => [...prev.slice(-40), logPool[Math.floor(Math.random() * logPool.length)]])
+        }, 2000)
+        return () => clearInterval(interval)
+    }, [])
+
+    return (
+        <div className="container" style={{ display: 'flex', gap: '2rem', padding: '2rem' }}>
+            <div className="log-bg">
+                {logs.map((log, i) => <div key={i}>{`[${new Date().toISOString()}] ${log}`}</div>)}
             </div>
 
-            <div className="container" id="archive">
-                <h2 className="section-title">Project Archive</h2>
-                <div className="list-view">
-                    {projects.map(p => (
-                        <div key={p.id} className="list-item" id={p.id}>
-                            <div style={{ marginBottom: '0.5rem' }}>
-                                {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
+            <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+
+            <main style={{ flex: 1 }}>
+                <AnimatePresence mode="wait">
+                    {activeTab === 'overview' && (
+                        <motion.div
+                            key="overview"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                        >
+                            <header style={{ marginBottom: '3rem' }}>
+                                <h1 className="gradient-text" style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>The Phoenix Build</h1>
+                                <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', maxWidth: '600px' }}>
+                                    A multi-agent synthesis of engineering history, pedagogic evolution,
+                                    and digital humanities archives.
+                                </p>
+                            </header>
+
+                            <div className="dashboard-grid">
+                                <div className="card glass" style={{ gridColumn: 'span 8' }}>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem' }}>
+                                        <h3>Active Investigation Feed</h3>
+                                        <Terminal size={20} />
+                                    </div>
+                                    <div style={{ height: '300px', width: '100%' }}>
+                                        <ResponsiveContainer>
+                                            <BarChart data={hoursData}>
+                                                <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
+                                                <XAxis dataKey="name" />
+                                                <YAxis />
+                                                <Tooltip
+                                                    contentStyle={{ background: 'var(--bg-dark)', border: 'none', borderRadius: '8px', color: 'white' }}
+                                                />
+                                                <Bar dataKey="hours">
+                                                    {hoursData.map((entry, index) => (
+                                                        <Cell key={`cell-${index}`} fill={entry.color} />
+                                                    ))}
+                                                </Bar>
+                                            </BarChart>
+                                        </ResponsiveContainer>
+                                    </div>
+                                </div>
+
+                                <div className="card glass-dark" style={{ gridColumn: 'span 4' }}>
+                                    <h3>Learning Journey</h3>
+                                    <div style={{ height: '300px', width: '100%' }}>
+                                        <ResponsiveContainer>
+                                            <PieChart>
+                                                <Pie
+                                                    data={learningData}
+                                                    innerRadius={60}
+                                                    outerRadius={80}
+                                                    paddingAngle={5}
+                                                    dataKey="value"
+                                                >
+                                                    {learningData.map((entry, index) => (
+                                                        <Cell key={`cell-${index}`} fill={index === 0 ? 'var(--secondary)' : index === 1 ? '#fff' : '#4a4a4a'} />
+                                                    ))}
+                                                </Pie>
+                                                <Tooltip />
+                                            </PieChart>
+                                        </ResponsiveContainer>
+                                    </div>
+                                    <div style={{ marginTop: '1rem', fontSize: '0.9rem', opacity: 0.8 }}>
+                                        <p>• Engineering: 40%</p>
+                                        <p>• Architecture: 30%</p>
+                                        <p>• Esoterica: 20%</p>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{p.title}</h3>
-                            <p style={{ marginBottom: '1.5rem' }}>{p.solution}</p>
-                            <button className="btn" style={{ fontSize: '0.7rem', padding: '0.4rem 1rem' }}>Read Proposal</button>
-                        </div>
-                    ))}
-                </div>
-                <div id="pkd" style={{ height: '0' }}></div>
-            </div>
+                        </motion.div>
+                    )}
 
-            <div className="container" id="agent-bins">
-                <h2 className="section-title">Agent Segregation: The Multi-Agent Workforce</h2>
-                <div className="bin-grid">
-                    <div className="bin-card">
-                        <h3>🌌 Bin A: Antigravity</h3>
-                        <p><strong>Role</strong>: Project Architect & Curriculum Designer</p>
-                        <ul style={{ fontSize: '0.8rem', paddingLeft: '1rem', marginTop: '1rem' }}>
-                            <li>Vite + React Scaffolding</li>
-                            <li>SHWEP Aesthetic System</li>
-                            <li>60+ Curricular Lessons</li>
-                            <li>CI/CD Deployment Pipelines</li>
-                        </ul>
-                    </div>
-                    <div className="bin-card">
-                        <h3>🤖 Bin B: Claude Code</h3>
-                        <p><strong>Role</strong>: Engineering Specialist</p>
-                        <ul style={{ fontSize: '0.8rem', paddingLeft: '1rem', marginTop: '1rem' }}>
-                            <li>MTGA Log Interrogation</li>
-                            <li>Native Win32 Geometry Sync</li>
-                            <li>State Logic Persistence</li>
-                            <li>TreeTapper Logic Implementation</li>
-                        </ul>
-                        <a href="https://github.com/t3dy/InternshipPitch/tree/main/claude-code-bins" className="btn" style={{ fontSize: '0.7rem', marginTop: '1.5rem', display: 'inline-block' }}>Browse Claude Bin</a>
-                    </div>
-                </div>
-            </div>
+                    {activeTab === 'archives' && (
+                        <motion.div
+                            key="archives"
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                        >
+                            <h2 style={{ marginBottom: '2rem' }}>The Vault Sector</h2>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
+                                {projects.map(project => (
+                                    <div key={project.id} className="card glass">
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                                            <span style={{ fontSize: '0.7rem', textTransform: 'uppercase', fontWeight: 800, padding: '2px 8px', borderRadius: '4px', background: project.agent === 'Antigravity' ? 'var(--primary)' : '#1a1a1a', color: 'white' }}>
+                                                {project.agent}
+                                            </span>
+                                            <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>{project.status}</span>
+                                        </div>
+                                        <h3>{project.title}</h3>
+                                        <p style={{ margin: '1rem 0', fontSize: '0.9rem', color: 'var(--text-muted)' }}>{project.description}</p>
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                                            {project.tags.map(tag => (
+                                                <span key={tag} style={{ fontSize: '0.7rem', border: '1px solid var(--border)', padding: '2px 6px', borderRadius: '4px' }}>{tag}</span>
+                                            ))}
+                                        </div>
+                                        <a href={project.link} target={project.link.startsWith('http') ? '_blank' : '_self'} className="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
+                                            Access Dashboard <ExternalLink size={14} />
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </main>
 
-            <div className="container" id="hour-analysis">
-                <h2 className="section-title">Analysis of Total Coding Hours</h2>
-                <div className="list-view">
-                    <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '1rem' }}>
-                        <thead>
-                            <tr style={{ borderBottom: '2px solid var(--border)', textAlign: 'left' }}>
-                                <th style={{ padding: '1rem' }}>Phase</th>
-                                <th style={{ padding: '1rem' }}>Human Interaction</th>
-                                <th style={{ padding: '1rem' }}>Antigravity</th>
-                                <th style={{ padding: '1rem' }}>Claude Code</th>
-                                <th style={{ padding: '1rem' }}>Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                                <td style={{ padding: '1rem' }}>Vibe Era</td>
-                                <td style={{ padding: '1rem' }}>4.5h</td>
-                                <td style={{ padding: '1rem' }}>2.0h</td>
-                                <td style={{ padding: '1rem' }}>1.5h</td>
-                                <td style={{ padding: '1rem' }}>8.0h</td>
-                            </tr>
-                            <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                                <td style={{ padding: '1rem' }}>Engineering Crucible</td>
-                                <td style={{ padding: '1rem' }}>12.0h</td>
-                                <td style={{ padding: '1rem' }}>6.0h</td>
-                                <td style={{ padding: '1rem' }}>8.5h</td>
-                                <td style={{ padding: '1rem' }}>26.5h</td>
-                            </tr>
-                            <tr style={{ borderBottom: '1px solid var(--border)' }}>
-                                <td style={{ padding: '1rem' }}>Instructional Pivot</td>
-                                <td style={{ padding: '1rem' }}>6.0h</td>
-                                <td style={{ padding: '1rem' }}>4.5h</td>
-                                <td style={{ padding: '1rem' }}>1.0h</td>
-                                <td style={{ padding: '1rem' }}>11.5h</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr style={{ fontWeight: 'bold', color: 'var(--accent)' }}>
-                                <td style={{ padding: '1rem' }}>TOTAL</td>
-                                <td style={{ padding: '1rem' }}>22.5h</td>
-                                <td style={{ padding: '1rem' }}>12.5h</td>
-                                <td style={{ padding: '1rem' }}>11.0h</td>
-                                <td style={{ padding: '1rem' }}>46.0h</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-
-            <div className="container" id="sitemap-section">
-                <h2 className="section-title">Site Map & Resources</h2>
-                <div id="services" style={{ height: '0' }}></div>
-                <div id="lessons" style={{ height: '0' }}></div>
-                <div id="skills" style={{ height: '0' }}></div>
-                <div id="pitch-generator" style={{ height: '0' }}></div>
-                <div className="sitemap">
-                    <ul>
-                        <li>
-                            <h4>Interrogations</h4>
-                            <a href="#pitch-video">The Pitch Video</a><br />
-                            <a href="#hour-analysis">Hour Analysis Table</a><br />
-                            <a href="#agent-bins">Agent Bin Segregation</a>
-                        </li>
-                        <li>
-                            <h4>The Archive</h4>
-                            <a href="#archive">Project Catalog</a><br />
-                            <a href="#pkd">PKD Archive Proposal</a><br />
-                            <a href="#overlay">Overlay V2 Eng. Crucible</a>
-                        </li>
-                        <li>
-                            <h4>Methodology</h4>
-                            <a href="#services">ID Agency Services</a><br />
-                            <a href="#lessons">Digital Humanities Curriculum</a>
-                        </li>
-                        <li>
-                            <h4>Technical</h4>
-                            <a href="https://github.com/t3dy/InternshipPitch">GitHub Repository</a><br />
-                            <a href="#skills">Skill Radar Data</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <footer style={{ padding: '6rem 2rem', textAlign: 'center', borderTop: '2px double var(--border)', marginTop: '4rem' }}>
-                <p style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
-                    Instructional Design & Systems Archeology
-                </p>
-                <p className="burgundy-text" style={{ fontStyle: 'italic', marginTop: '1rem' }}>
-                    Developed by The Vibe Coder
-                </p>
+            <footer style={{
+                position: 'fixed',
+                bottom: '1rem',
+                right: '2rem',
+                fontSize: '0.8rem',
+                opacity: 0.5,
+                display: 'flex',
+                gap: '2rem'
+            }}>
+                <span>© 2026 Paul Shelton | Sound Legacy Intake</span>
+                <span>Version 2.0.0-PHOENIX</span>
             </footer>
         </div>
     )

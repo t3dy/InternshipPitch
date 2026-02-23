@@ -1,45 +1,35 @@
-# Internship Pitch Generator: Systems Archeology Edition
+# The Phoenix Build: Multi-Agent Synthesis
 
-An interactive portfolio and methodology tool designed to transform "Vibe Coding" experiments into professional systems engineering and instructional design outcomes.
+This repository serves as the central command center for the **Sound Legacy Intake** internship portfolio. It synthesizes a decade of pedagogic exploration with high-end software engineering rituals performed by dual AI agents (**Antigravity** & **Claude Code**).
 
-## 🏛️ Purpose
-This project serves as a live demonstration of **Action Mapping** and **Systems Archeology**. It was built to bridge the gap between creative prompt engineering and rigorous software development, specifically tailored for the **PKD Multimedia Archive** and **Sound Legacy** internship initiatives.
+## 🚀 Live Dashboards & Projects
 
-## 🚀 Live Links
-- **Interactive Dashboard**: [t3dy.github.io/InternshipPitch](https://t3dy.github.io/InternshipPitch/)
-- **Methodology**: [The Action Mapping Process](./PROCESS.md)
-- **GitHub Repository**: [t3dy/InternshipPitch](https://github.com/t3dy/InternshipPitch)
+As requested, all built components are accessible via the following live links. These are functional websites, not just code repositories.
 
-## 🛠️ Tech Stack
-- **Frontend**: Vite + React + TypeScript
-- **Styling**: Scholarly Serif Aesthetic (Cribbed from [shwep.net](https://shwep.net))
-- **Logic**: Zod-validated persistence, Hybrid Graph-Relational schemas.
-- **AI Integration**: Custom Claude Skills for Internship Pitch creation.
+### Primary Command Center
+- **[Phoenix Dashboard](https://t3dy.github.io/Showcase/)** (Current)
+  - *Synthesized by Antigravity & Claude Code*
+  - Real-time engineering visualizations, hour analysis, and multi-agent narrative integration.
 
-## 🏗️ Repository Structure
-- **/src**: Dashboard source code (Vite + React).
-- **/claude-code-bins**: Consolidation of engineering projects (MTGOverlay, TreeTapper) developed by the Claude Code agent.
-- **/lessons_***: Curricula and methodology documentation.
-- **PROCESS.md**: The "Engineering Crucible" narrative.
-- **ENGINEERING_RITUALS.md**: Technical analysis of the Claude Code bin.
+### Specialized Dashboards
+- **[AlchemyDB Digital Humanities Archive](https://t3dy.github.io/AlchemyDB/)**
+  - *Engineered by Claude Code*
+  - A local-first extraction pipeline and dashboard for alchemical manuscripts.
+- **[TreeTapper Pedagogic Prototype](https://t3dy.github.io/TreeTapper/)**
+  - *Evolutionary Prototype*
+  - A 15-year journey from classroom pedagogy to React Native engine development.
 
-## 📊 Agent Segregation & Hour Analysis
-This project implements a multi-agent workflow. Contributions are tracked in separate bins:
-- **Bin A (Antigravity)**: UI/UX, Curriculum Design, Systems Architecture.
-- **Bin B (Claude Code)**: Real-time logic, C++ interop, Game state interrogation.
+### Legacy Sector
+- **[MTGOverlay V2 Archive](https://t3dy.github.io/Showcase/legacy-v1/)**
+  - *Engineered by Claude Code*
+  - Preserved as a case study in technical debt (IPC flooding and system stress).
 
-**Total Project Investment**: ~46 Coding Hours.
-Detailed analysis is available on the [Live Dashboard](https://t3dy.github.io/InternshipPitch/).
+## 🛠 Multi-Agent Architecture
 
-## 📖 Features
-- **Project Archive**: A relational database of technical achievements.
-- **Digital Humanities Curriculum**: 40 lessons mapping philosophy to code.
-- **Process Auditing**: Built-in "Metacognitive" feedback loops for prompt engineering efficiency.
+This project is a unique collaboration between two distinct AI personalities:
 
-## 📜 How to Use
-1. **Explore the Archive**: Navigate through the "Project Archive" to see how systems-building logic was applied to diverse domains.
-2. **Generate Your Pitch**: Use the integrated Claude Skills (in `.agent/skills`) to package your own journeys into professional pitches.
-3. **Review the Methodology**: Read `PROCESS.md` for a deep dive into the "Engineering Crucible" that produced this tool.
+1.  **Antigravity**: Focus on UI/UX, scholarly aesthetics, and system synthesis.
+2.  **Claude Code**: Focus on core engineering, data pipelines, and real-time state management.
 
----
-Developed by **The Vibe Coder** in collaboration with Antigravity.
+## 📊 Hour Analysis
+Total project effort is quantified at ~46.2 hours of engineering ritual, encompassing database architecture, real-time log interrogation, and curriculum development.
