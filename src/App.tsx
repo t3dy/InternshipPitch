@@ -17,10 +17,17 @@ const projects = [
     },
     {
         id: 'overlay',
-        title: 'The Crucible: real-time Log Interrogation',
+        title: 'The Crucible: Real-time Log Interrogation',
         problem: 'Technical debt in real-time application state management.',
         solution: 'Native Win32 geometry sync and Zod-validated persistence for game-state tracking.',
         tags: ['Engineering Rigor', 'IPC', 'State Logic']
+    },
+    {
+        id: 'treetapper',
+        title: 'Esoteric Logic: The TreeTapper Engine',
+        problem: 'Mapping high-dimensional philosophical data to interactive UI.',
+        solution: 'Dynamic color-scale attribution engines for real-time pedagogical feedback.',
+        tags: ['Instructional Design', 'Philosophy-to-Code', 'UI/UX']
     }
 ]
 
