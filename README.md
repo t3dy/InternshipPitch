@@ -7,7 +7,7 @@ This repository serves as the central command center for the **Sound Legacy Inta
 As requested, all built components are accessible via the following live links. These are functional websites, not just code repositories.
 
 ### Primary Command Center
-- **[Phoenix Dashboard](https://t3dy.github.io/Showcase/)** (Current)
+- **[Phoenix Dashboard](https://t3dy.github.io/InternshipPitch/)** (Current)
   - *Synthesized by Antigravity & Claude Code*
   - Real-time engineering visualizations, hour analysis, and multi-agent narrative integration.
 
@@ -20,7 +20,7 @@ As requested, all built components are accessible via the following live links. 
   - A 15-year journey from classroom pedagogy to React Native engine development.
 
 ### Legacy Sector
-- **[MTGOverlay V2 Archive](https://t3dy.github.io/Showcase/legacy-v1/)**
+- **[MTGOverlay V2 Archive](https://t3dy.github.io/InternshipPitch/legacy-v1/)**
   - *Engineered by Claude Code*
   - Preserved as a case study in technical debt (IPC flooding and system stress).
 
