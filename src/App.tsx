@@ -87,6 +87,7 @@ const Sidebar = ({ activeTab, setActiveTab }: any) => {
         { id: 'overview', icon: Cpu, label: 'Command Center' },
         { id: 'metrics', icon: Clock, label: 'Hour Analysis' },
         { id: 'archives', icon: Layers, label: 'Vault Sector' },
+        { id: 'syllabus', icon: BookOpen, label: 'Syllabus' },
         { id: 'narrative', icon: ShieldAlert, label: 'Engineering Rituals' },
     ]
 
@@ -316,6 +317,75 @@ function App() {
                                         <a href={project.link} target={project.link.startsWith('http') ? '_blank' : '_self'} className="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>
                                             Access Dashboard <ExternalLink size={14} />
                                         </a>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {activeTab === 'syllabus' && (
+                        <motion.div
+                            key="syllabus"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                        >
+                            <h2 style={{ marginBottom: '1rem' }}>Quantifying the Vibe: The Syllabus</h2>
+                            <p style={{ color: 'var(--text-muted)', marginBottom: '2rem', maxWidth: '800px' }}>
+                                A 20-lesson masterclass in Data Science, Web Development, and Interface Design,
+                                extracted from the engineering history of this dashboard.
+                            </p>
+
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: '1rem' }}>
+                                {[
+                                    {
+                                        mod: 'Module 1: Data of Learning', lessons: [
+                                            { t: '1. The Atomic Turn', c: 'Visualizing "turns" in a conversation as progress unit.', s: 'JSON logs' },
+                                            { t: '2. Semantic Density', c: 'Ratio of code change to prompt length.', s: 'NLP Analysis' },
+                                            { t: '3. Error Archipelago', c: 'Mapping clusters of lint errors to friction zones.', s: 'D3.js' },
+                                            { t: '4. Categorical Entropy', c: 'Visualizing shift from "Vibe" to "Plan".', s: 'Shannon Entropy' },
+                                            { t: '5. Temporal Velocity', c: 'Tracking feature implementation speed.', s: 'Time-series' }
+                                        ]
+                                    },
+                                    {
+                                        mod: 'Module 2: Web Dev for Insight', lessons: [
+                                            { t: '6. Relational Scaffolding', c: 'Projects as nodes in a Systems Archeology graph.', s: 'React + ForceGraph' },
+                                            { t: '7. Glassmorphic Archive', c: 'UI aesthetics representing hidden AI layers.', s: 'Backdrop Filters' },
+                                            { t: '8. Real-time Interrogation', c: 'Live log streams as browser-based streams.', s: 'MTGA Bridge' },
+                                            { t: '9. State Archeology', c: 'UIs changing based on project "maturity".', s: 'Zustand/JSON' },
+                                            { t: '10. Responsive Scholasticism', c: 'Complex data legible across all viewports.', s: 'CSS Grid' }
+                                        ]
+                                    },
+                                    {
+                                        mod: 'Module 3: Interface Design', lessons: [
+                                            { t: '11. Prompt Critique Overlay', c: 'Feedback directly on handover documents.', s: 'SVG Annotations' },
+                                            { t: '12. Visualizing Plan Gate', c: 'Progress bar tracking "Plan Confidence".', s: 'Zod Validation' },
+                                            { t: '13. High-Signal Minimalism', c: 'Typography-first systems (shwep.net inspired).', s: 'Info Hierarchy' },
+                                            { t: '14. Metacognitive Radar', c: 'Spider charts showing skill growth.', s: 'Recharts' },
+                                            { t: '15. Annotated Journey', c: 'Scroll-linked storytelling with log insights.', s: 'Intersection Observer' }
+                                        ]
+                                    },
+                                    {
+                                        mod: 'Module 4: Synthesis Pitch', lessons: [
+                                            { t: '16. Narrative Data Structures', c: 'Formatting portfolio where data is the story.', s: 'SSG + Metadata' },
+                                            { t: '17. Artifact Carousel', c: 'Showing evolution from "Draft" to "Final".', s: 'Framer Motion' },
+                                            { t: '18. Quantifying the Vibe', c: 'Bar charts of Vibe vs. Hard Engineering.', s: 'Comparative Metrics' },
+                                            { t: '19. Pitch Generator UI', c: 'Interfaces outputting 2-minute scripts.', s: 'Template String Ops' },
+                                            { t: '20. The Eternal Archive', c: 'Preserving learning records permanently.', s: 'IPFS / GH Pages' }
+                                        ]
+                                    }
+                                ].map(module => (
+                                    <div key={module.mod} className="card glass" style={{ marginBottom: '1rem' }}>
+                                        <h4 style={{ color: 'var(--primary)', marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>{module.mod}</h4>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                                            {module.lessons.map(lesson => (
+                                                <div key={lesson.t} style={{ fontSize: '0.85rem' }}>
+                                                    <div style={{ fontWeight: 800 }}>{lesson.t}</div>
+                                                    <div style={{ opacity: 0.7 }}>{lesson.c}</div>
+                                                    <div style={{ fontSize: '0.7rem', opacity: 0.5, fontStyle: 'italic' }}>Tech: {lesson.s}</div>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
