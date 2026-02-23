@@ -23,8 +23,34 @@ In every project (PKD, Sound Legacy, MTGA), we applied the following mapping:
 2. **Target Action**: Define the behavior needed for success (e.g., automated metadata generation).
 3. **Software Scaffolding**: Build the tool that makes the action inevitable (e.g., the Biographical Tailer).
 
-## 🚀 The Result
-A living dashboard that doesn't just show *what* was built, but *how* the architect evolved.
+## 🤖 Agent Segregation: The Multi-Agent Workforce
+
+To ensure transparency in our "Systems Archeology," we segregate the contributions of the primary AI agents utilized in this project.
+
+### 🌌 Bin A: Antigravity (Project Architect)
+- **Role**: High-level system design, multi-agent coordination, and curriculum development.
+- **Key Contributions**:
+    - **Agency Website**: Scaffolding the Vite+React architecture and SHWEP aesthetic.
+    - **Digital Humanities**: Drafting the 40+ PK-Dick and Database lessons.
+    - **Prompt Engineering**: Designing the specialized Claude Skills for pitch generation.
+    - **Deployment**: Architecting the GitHub Actions CI/CD pipelines.
+
+### 🤖 Bin B: Claude Code (Engineering Specialist)
+- **Role**: Low-level implementation, log interrogation, and technical persistence.
+- **Key Contributions**:
+    - **Overlay V2**: Solving the Win32 geometry sync and IPC flooding hurdles.
+    - **TreeTapper**: Rapid prototyping of game logic and state persistence.
+    - **Log Parsing**: Real-time interrogation of MTGA log files using Zod.
+
+## 📊 Total Coding Hour Analysis
+Combined metrics from Antigravity logs and Claude Code self-audits.
+
+| Phase | Human Interaction | Antigravity (Arch) | Claude Code (Eng) | Total "Internship" Hours |
+|---|---|---|---|---|
+| **Vibe Era** | 4.5h | 2.0h | 1.5h | **8.0h** |
+| **Engineering Crucible** | 12.0h | 6.0h | 8.5h | **26.5h** |
+| **Instructional Pivot** | 6.0h | 4.5h | 1.0h | **11.5h** |
+| **TOTAL** | **22.5h** | **12.5h** | **11.0h** | **46.0h** |
 
 ---
 "Software is the simulacrum of the designer's intent." — *Inspired by Philip K. Dick*

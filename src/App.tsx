@@ -50,13 +50,14 @@ function App() {
                 <p style={{ textAlign: 'center', fontStyle: 'italic', marginTop: '1rem', color: 'var(--text-muted)' }}>
                     Demonstrating CS aptitude and the "Action Mapping" approach to Paul Shelton & Sound Legacy.
                 </p>
+                <div id="methodology" style={{ height: '0' }}></div>
             </div>
 
             <div className="container" id="archive">
                 <h2 className="section-title">Project Archive</h2>
                 <div className="list-view">
                     {projects.map(p => (
-                        <div key={p.id} className="list-item">
+                        <div key={p.id} className="list-item" id={p.id}>
                             <div style={{ marginBottom: '0.5rem' }}>
                                 {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
                             </div>
@@ -66,10 +67,15 @@ function App() {
                         </div>
                     ))}
                 </div>
+                <div id="pkd" style={{ height: '0' }}></div>
             </div>
 
             <div className="container" id="sitemap-section">
                 <h2 className="section-title">Site Map & Resources</h2>
+                <div id="services" style={{ height: '0' }}></div>
+                <div id="lessons" style={{ height: '0' }}></div>
+                <div id="skills" style={{ height: '0' }}></div>
+                <div id="pitch-generator" style={{ height: '0' }}></div>
                 <div className="sitemap">
                     <ul>
                         <li>

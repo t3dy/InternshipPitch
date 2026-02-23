@@ -6,7 +6,7 @@ An interactive portfolio and methodology tool designed to transform "Vibe Coding
 This project serves as a live demonstration of **Action Mapping** and **Systems Archeology**. It was built to bridge the gap between creative prompt engineering and rigorous software development, specifically tailored for the **PKD Multimedia Archive** and **Sound Legacy** internship initiatives.
 
 ## 🚀 Live Links
-- **Interactive Dashboard**: [Browse the Project Database](#archive)
+- **Interactive Dashboard**: [t3dy.github.io/InternshipPitch](https://t3dy.github.io/InternshipPitch/)
 - **Methodology**: [The Action Mapping Process](./PROCESS.md)
 - **GitHub Repository**: [t3dy/InternshipPitch](https://github.com/t3dy/InternshipPitch)
 
