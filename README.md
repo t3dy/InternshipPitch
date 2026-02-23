@@ -16,6 +16,21 @@ This project serves as a live demonstration of **Action Mapping** and **Systems 
 - **Logic**: Zod-validated persistence, Hybrid Graph-Relational schemas.
 - **AI Integration**: Custom Claude Skills for Internship Pitch creation.
 
+## 🏗️ Repository Structure
+- **/src**: Dashboard source code (Vite + React).
+- **/claude-code-bins**: Consolidation of engineering projects (MTGOverlay, TreeTapper) developed by the Claude Code agent.
+- **/lessons_***: Curricula and methodology documentation.
+- **PROCESS.md**: The "Engineering Crucible" narrative.
+- **ENGINEERING_RITUALS.md**: Technical analysis of the Claude Code bin.
+
+## 📊 Agent Segregation & Hour Analysis
+This project implements a multi-agent workflow. Contributions are tracked in separate bins:
+- **Bin A (Antigravity)**: UI/UX, Curriculum Design, Systems Architecture.
+- **Bin B (Claude Code)**: Real-time logic, C++ interop, Game state interrogation.
+
+**Total Project Investment**: ~46 Coding Hours.
+Detailed analysis is available on the [Live Dashboard](https://t3dy.github.io/InternshipPitch/).
+
 ## 📖 Features
 - **Project Archive**: A relational database of technical achievements.
 - **Digital Humanities Curriculum**: 40 lessons mapping philosophy to code.
